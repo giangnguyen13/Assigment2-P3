@@ -7,6 +7,17 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Button x:Name="createBillBtn" Click="createBillBtn_Click" Content="Generate Bill" HorizontalAlignment="Left" Margin="57,321,0,0" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="resetBtn" Click="resetBtn_Click" Content="Reset" HorizontalAlignment="Left" Margin="279,321,0,0" VerticalAlignment="Top" Width="113"/>
+        <TextBox x:Name="testInput" HorizontalAlignment="Left" Height="23" Margin="106,105,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="drinkCbx" HorizontalAlignment="Left" Margin="279,105,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem Content="Coffie"></ComboBoxItem>
+            <ComboBoxItem Content="Tea"></ComboBoxItem>
+            <ComboBoxItem Content="Orange Juice"></ComboBoxItem>
+            <ComboBoxItem Content="Milk"></ComboBoxItem>
+            <ComboBoxItem Content="Iced Tea"></ComboBoxItem>
+            <ComboBoxItem Content="Mango Shake"></ComboBoxItem>
+        </ComboBox>
+
     </Grid>
 </Window>

@@ -6,12 +6,16 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
+//using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+
+using System.IO;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
 
 namespace Assignment2
 {
@@ -26,6 +30,23 @@ namespace Assignment2
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void createBillBtn_Click(object sender, RoutedEventArgs e)
+        {
+            //testInput.Text = "";
+            Document doc = new Document(iTextSharp.text.PageSize.LETTER, 10, 10, 42, 35);
+            PdfWriter writer = PdfWriter.GetInstance(doc, new FileStream($"{testInput.Text}.pdf",FileMode.Create));
+            doc.Open();
+            Paragraph paragraph = new Paragraph("This is a paragraph.\nNew Line");
+            doc.Add(paragraph);
+            doc.Close();
+        }
+
+        private void resetBtn_Click(object sender, RoutedEventArgs e)
+        {
+            drinkCbx.SelectedItem = null;
+            testInput.Text = "";
         }
     }
 }
