@@ -23,7 +23,13 @@
         <Label x:Name="labelAppetizer" Content="Appetizer" HorizontalAlignment="Left" Margin="254,82,0,0" VerticalAlignment="Top"/>
         <Label x:Name="labelMainCourse" Content="Main Course" HorizontalAlignment="Left" Margin="78,159,0,0" VerticalAlignment="Top"/>
         <Label x:Name="labelDessert" Content="Dessert" HorizontalAlignment="Left" Margin="254,159,0,0" VerticalAlignment="Top"/>
-        <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Height="124" Margin="442,82,0,0" VerticalAlignment="Top" Width="299"/>
-
+        <DataGrid x:Name="dataGrid" ItemsSource="{Binding orders}" HorizontalAlignment="Left" Height="168" Margin="420,83,0,0" VerticalAlignment="Top" Width="353">
+            <DataGrid.Columns>
+                <DataGridTextColumn Foreground="Black" Width="140" Header="Name"  Binding="{Binding Name, Mode=OneWay}" IsReadOnly="True"/>
+                <DataGridTextColumn Foreground="Black" Width="140" Header="Category"  Binding="{Binding Category, Mode=OneWay}" IsReadOnly="True"/>
+                <DataGridTextColumn Foreground="Black" Width="50" Header="Price"  Binding="{Binding Price, Mode=OneWay}" IsReadOnly="True"/>
+                <DataGridTextColumn Foreground="Black" Width="60" Header="Quantity" Binding="{Binding qty, Mode=TwoWay}"  IsReadOnly="false" />
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Window>
