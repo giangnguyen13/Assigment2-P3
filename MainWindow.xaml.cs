@@ -29,7 +29,9 @@ namespace Assignment2
         public MainWindow()
         {
             InitializeComponent();
+            List<RestaurantItem> orders = RestaurantItem.GetItems();
 
+            dataGrid.ItemsSource = orders;
             foreach (RestaurantItem item in RestaurantItem.GetItems())
             {
                 if (item.Category == "Beverage")
@@ -59,9 +61,14 @@ namespace Assignment2
 
         private void ComboBoxBeverage_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            //ComboBox typeItem = (ComboBox)comboBoxBeverage.SelectedItem;
+            //ComboBoxItem typeItem = ((ComboBoxItem)comboBoxBeverage.SelectedItem).Content.ToString();
+            //string value = (comboBoxBeverage.SelectedItem).ToString();//comboBoxBeverage.Text;//typeItem.Text;
+            string value = comboBoxBeverage.SelectedItem as string;
             //var selectedValue = comboBoxBeverage.SelectedValuePath;  //((ComboBoxItem)comboBoxBeverage.SelectedItem).Content.ToString();
             //list.Add(selectedValue);
             //dataGrid.ItemsSource = selectedValue;
+            MessageBox.Show($"{value}");
         }
 
         private void ComboBoxMainCourse_SelectionChanged(object sender, SelectionChangedEventArgs e)
