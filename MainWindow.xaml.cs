@@ -25,13 +25,17 @@ namespace Assignment2
     public partial class MainWindow : Window
     {
         ObservableCollection<string> list = new ObservableCollection<string>();
+        List<RestaurantItem> orders = new List<RestaurantItem>();
 
         public MainWindow()
         {
             InitializeComponent();
-            List<RestaurantItem> orders = RestaurantItem.GetItems();
 
-            dataGrid.ItemsSource = orders;
+            //dataGrid.SetBinding(orders);
+            //orders = RestaurantItem.GetItems();
+            //dataGrid.ItemsSource = orders;
+
+
             foreach (RestaurantItem item in RestaurantItem.GetItems())
             {
                 if (item.Category == "Beverage")
@@ -65,10 +69,17 @@ namespace Assignment2
             //ComboBoxItem typeItem = ((ComboBoxItem)comboBoxBeverage.SelectedItem).Content.ToString();
             //string value = (comboBoxBeverage.SelectedItem).ToString();//comboBoxBeverage.Text;//typeItem.Text;
             string value = comboBoxBeverage.SelectedItem as string;
-            //var selectedValue = comboBoxBeverage.SelectedValuePath;  //((ComboBoxItem)comboBoxBeverage.SelectedItem).Content.ToString();
-            //list.Add(selectedValue);
-            //dataGrid.ItemsSource = selectedValue;
-            MessageBox.Show($"{value}");
+
+            updateList(this.orders, value);
+            //RestaurantItem restaurantItem = orders.IndexOf(orders.Find(orderItem => orderItem.Name.Contains(value)));
+            //int index = orders.IndexOf(orders.Find(orderItem => orderItem.Name.Contains(value)));
+
+            //RestaurantItem restaurantItem = orders[index];
+            //restaurantItem.qty++;
+
+            //dataGrid.Items.Refresh();
+            MessageBox.Show("event trigger");
+            //MessageBox.Show($"{value}, index {index}, quantity {orders[index].qty}");
         }
 
         private void ComboBoxMainCourse_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -90,6 +101,44 @@ namespace Assignment2
             //var selectedValue = ((ComboBoxItem)comboBoxAppetizer.SelectedItem).Content.ToString();
             //list.Add(selectedValue);
             //dataGrid.ItemsSource = list;
+        }
+
+        private void updateList(List<RestaurantItem> orders, string item) 
+        {
+            int index = orders.IndexOf(orders.Find(orderItem => orderItem.Name.Contains(item)));
+            if (index == -1) // if not in the list
+            {
+                RestaurantItem newItem = getItem(item);
+                orders.Add(newItem);
+            }
+            else
+            {
+                RestaurantItem restaurantItem = orders[index];
+                restaurantItem.qty++;
+            }
+            //MessageBox.
+            dataGrid.ItemsSource = orders;
+            dataGrid.Items.Refresh();
+        }
+
+        private static RestaurantItem getItem(string name)
+        {
+            RestaurantItem restaurantItem;
+            switch (name)
+            {
+                case "Soda":
+                    restaurantItem = new RestaurantItem("Soda", "Beverage", 1.95);
+                    return restaurantItem;
+                case "Tea":
+                    restaurantItem = new RestaurantItem("Tea", "Beverage", 1.50);
+                    return restaurantItem;
+                case "Coffee":
+                    restaurantItem = new RestaurantItem("Coffee", "Beverage", 1.25);
+                    return restaurantItem;
+                default:
+                    return null;
+            }
+            
         }
 
     }

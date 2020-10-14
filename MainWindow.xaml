@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Assignment2"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="461.029" Width="1101.103">
     <Grid>
         <ComboBox x:Name="comboBoxBeverage" HorizontalAlignment="Left" Margin="78,113,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="-0.053,-1.025" 
                   SelectionChanged="ComboBoxBeverage_SelectionChanged"
@@ -23,13 +23,8 @@
         <Label x:Name="labelAppetizer" Content="Appetizer" HorizontalAlignment="Left" Margin="254,82,0,0" VerticalAlignment="Top"/>
         <Label x:Name="labelMainCourse" Content="Main Course" HorizontalAlignment="Left" Margin="78,159,0,0" VerticalAlignment="Top"/>
         <Label x:Name="labelDessert" Content="Dessert" HorizontalAlignment="Left" Margin="254,159,0,0" VerticalAlignment="Top"/>
-        <DataGrid x:Name="dataGrid" ItemsSource="{Binding orders}" HorizontalAlignment="Left" Height="168" Margin="420,83,0,0" VerticalAlignment="Top" Width="353">
-            <DataGrid.Columns>
-                <DataGridTextColumn Foreground="Black" Width="140" Header="Name"  Binding="{Binding Name, Mode=OneWay}" IsReadOnly="True"/>
-                <DataGridTextColumn Foreground="Black" Width="140" Header="Category"  Binding="{Binding Category, Mode=OneWay}" IsReadOnly="True"/>
-                <DataGridTextColumn Foreground="Black" Width="50" Header="Price"  Binding="{Binding Price, Mode=OneWay}" IsReadOnly="True"/>
-                <DataGridTextColumn Foreground="Black" Width="60" Header="Quantity" Binding="{Binding qty, Mode=TwoWay}"  IsReadOnly="false" />
-            </DataGrid.Columns>
+        <DataGrid x:Name="dataGrid" ItemsSource="{Binding orders}" HorizontalAlignment="Left" Height="168" Margin="420,83,0,0" VerticalAlignment="Top" Width="575">
+
         </DataGrid>
     </Grid>
 </Window>
