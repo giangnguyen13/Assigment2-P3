@@ -123,8 +123,22 @@ namespace Assignment2
 
         private static RestaurantItem getItem(string name)
         {
-            RestaurantItem restaurantItem;
-            switch (name)
+            RestaurantItem restaurantItem = new RestaurantItem();
+
+
+            foreach (RestaurantItem item in RestaurantItem.GetItems())
+            {
+                if (item.Name == name) {
+                    restaurantItem = item;
+                    break;
+                }
+                
+            }
+
+            return restaurantItem;
+
+
+            /*switch (name)
             {
                 case "Soda":
                     restaurantItem = new RestaurantItem("Soda", "Beverage", 1.95);
@@ -137,8 +151,10 @@ namespace Assignment2
                     return restaurantItem;
                 default:
                     return null;
-            }
+            }*/
+
             
+
         }
 
     }
