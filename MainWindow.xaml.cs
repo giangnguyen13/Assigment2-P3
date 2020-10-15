@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,26 +28,132 @@ namespace Assignment2
     /// </summary>
     public partial class MainWindow : Window
     {
+        ObservableCollection<string> list = new ObservableCollection<string>();
+        List<RestaurantItem> orders = new List<RestaurantItem>();
+
         public MainWindow()
         {
             InitializeComponent();
+
+            //dataGrid.SetBinding(orders);
+            //orders = RestaurantItem.GetItems();
+            //dataGrid.ItemsSource = orders;
+
+
+            foreach (RestaurantItem item in RestaurantItem.GetItems())
+            {
+                if (item.Category == "Beverage")
+                {
+                    comboBoxBeverage.Items.Add(item.Name);
+                }
+                else if (item.Category == "Appetizer")
+                {
+                    comboBoxAppetizer.Items.Add(item.Name);
+                }
+                else if (item.Category == "Main Course")
+                {
+                    comboBoxMainCourse.Items.Add(item.Name);
+                }
+                else if (item.Category == "Dessert")
+                {
+                    comboBoxDessert.Items.Add(item.Name);
+                }
+            }
+
+            //comboBoxBeverage.SelectedIndex = 0;
+            //comboBoxAppetizer.SelectedIndex = 0;
+            //comboBoxMainCourse.SelectedIndex = 0;
+            //comboBoxDessert.SelectedIndex = 0;
+
         }
 
-        private void createBillBtn_Click(object sender, RoutedEventArgs e)
+        private void ComboBoxBeverage_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //ComboBox typeItem = (ComboBox)comboBoxBeverage.SelectedItem;
+            //ComboBoxItem typeItem = ((ComboBoxItem)comboBoxBeverage.SelectedItem).Content.ToString();
+            //string value = (comboBoxBeverage.SelectedItem).ToString();//comboBoxBeverage.Text;//typeItem.Text;
+            string value = comboBoxBeverage.SelectedItem as string;
+
+            updateList(this.orders, value);
+            //RestaurantItem restaurantItem = orders.IndexOf(orders.Find(orderItem => orderItem.Name.Contains(value)));
+            //int index = orders.IndexOf(orders.Find(orderItem => orderItem.Name.Contains(value)));
+
+            //RestaurantItem restaurantItem = orders[index];
+            //restaurantItem.qty++;
+
+            //dataGrid.Items.Refresh();
+            MessageBox.Show("event trigger");
+            //MessageBox.Show($"{value}, index {index}, quantity {orders[index].qty}");
+        }
+
+        private void ComboBoxMainCourse_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //var selectedValue = ((ComboBoxItem)comboBoxMainCourse.SelectedItem).Content.ToString();
+            //list.Add(selectedValue);
+            //dataGrid.ItemsSource = list;
+        }
+
+        private void ComboBoxDessert_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+           //var selectedValue = ((ComboBoxItem)comboBoxDessert.SelectedItem).Content.ToString();
+            //list.Add(selectedValue);
+            //dataGrid.ItemsSource = list;
+        }
+
+        private void ComboBoxAppetizer_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //var selectedValue = ((ComboBoxItem)comboBoxAppetizer.SelectedItem).Content.ToString();
+            //list.Add(selectedValue);
+            //dataGrid.ItemsSource = list;
+        }
+
+        private void updateList(List<RestaurantItem> orders, string item) 
+        {
+            int index = orders.IndexOf(orders.Find(orderItem => orderItem.Name.Contains(item)));
+            if (index == -1) // if not in the list
+            {
+                RestaurantItem newItem = getItem(item);
+                orders.Add(newItem);
+            }
+            else
+            {
+                RestaurantItem restaurantItem = orders[index];
+                restaurantItem.qty++;
+            }
+            //MessageBox.
+            dataGrid.ItemsSource = orders;
+            dataGrid.Items.Refresh();
+        }
+
+        private static RestaurantItem getItem(string name)
+        {
+            RestaurantItem restaurantItem;
+            switch (name)
+            {
+                case "Soda":
+                    restaurantItem = new RestaurantItem("Soda", "Beverage", 1.95);
+                    return restaurantItem;
+                case "Tea":
+                    restaurantItem = new RestaurantItem("Tea", "Beverage", 1.50);
+                    return restaurantItem;
+                case "Coffee":
+                    restaurantItem = new RestaurantItem("Coffee", "Beverage", 1.25);
+                    return restaurantItem;
+                default:
+                    return null;
+            }
+            
+        }
+
+        private void printBilBtn_Click(object sender, RoutedEventArgs e)
         {
             //testInput.Text = "";
             Document doc = new Document(iTextSharp.text.PageSize.LETTER, 10, 10, 42, 35);
-            PdfWriter writer = PdfWriter.GetInstance(doc, new FileStream($"{testInput.Text}.pdf",FileMode.Create));
+            PdfWriter writer = PdfWriter.GetInstance(doc, new FileStream($"test1235.pdf", FileMode.Create));
             doc.Open();
             Paragraph paragraph = new Paragraph("This is a paragraph.\nNew Line");
             doc.Add(paragraph);
             doc.Close();
-        }
-
-        private void resetBtn_Click(object sender, RoutedEventArgs e)
-        {
-            drinkCbx.SelectedItem = null;
-            testInput.Text = "";
         }
     }
 }

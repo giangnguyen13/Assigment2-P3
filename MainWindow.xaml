@@ -5,19 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Assignment2"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="461.029" Width="1101.103">
     <Grid>
-        <Button x:Name="createBillBtn" Click="createBillBtn_Click" Content="Generate Bill" HorizontalAlignment="Left" Margin="57,321,0,0" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="resetBtn" Click="resetBtn_Click" Content="Reset" HorizontalAlignment="Left" Margin="279,321,0,0" VerticalAlignment="Top" Width="113"/>
-        <TextBox x:Name="testInput" HorizontalAlignment="Left" Height="23" Margin="106,105,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <ComboBox x:Name="drinkCbx" HorizontalAlignment="Left" Margin="279,105,0,0" VerticalAlignment="Top" Width="120">
-            <ComboBoxItem Content="Coffie"></ComboBoxItem>
-            <ComboBoxItem Content="Tea"></ComboBoxItem>
-            <ComboBoxItem Content="Orange Juice"></ComboBoxItem>
-            <ComboBoxItem Content="Milk"></ComboBoxItem>
-            <ComboBoxItem Content="Iced Tea"></ComboBoxItem>
-            <ComboBoxItem Content="Mango Shake"></ComboBoxItem>
-        </ComboBox>
+        <ComboBox x:Name="comboBoxBeverage" HorizontalAlignment="Left" Margin="78,113,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="-0.053,-1.025" 
+                  SelectionChanged="ComboBoxBeverage_SelectionChanged"
+                  SelectedValuePath="Content"/>
+        <ComboBox x:Name="comboBoxMainCourse" HorizontalAlignment="Left" Margin="78,185,0,0" VerticalAlignment="Top" Width="120" 
+                  SelectionChanged="ComboBoxMainCourse_SelectionChanged"
+                  SelectedValuePath="Content"/>
+        <ComboBox x:Name="comboBoxAppetizer" HorizontalAlignment="Left" Margin="254,113,0,0" VerticalAlignment="Top" Width="120" 
+                  SelectionChanged="ComboBoxAppetizer_SelectionChanged"
+                  SelectedValuePath="Content"/>
+        <ComboBox x:Name="comboBoxDessert" HorizontalAlignment="Left" Margin="254,185,0,0" VerticalAlignment="Top" Width="120" 
+                  SelectionChanged="ComboBoxDessert_SelectionChanged"
+                  SelectedValuePath="Content"/>
+        <Label x:Name="labelBeverage" Content="Beverage" HorizontalAlignment="Left" Margin="78,82,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="labelAppetizer" Content="Appetizer" HorizontalAlignment="Left" Margin="254,82,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="labelMainCourse" Content="Main Course" HorizontalAlignment="Left" Margin="78,159,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="labelDessert" Content="Dessert" HorizontalAlignment="Left" Margin="254,159,0,0" VerticalAlignment="Top"/>
+        <DataGrid x:Name="dataGrid" ItemsSource="{Binding orders}" HorizontalAlignment="Left" Height="168" Margin="420,83,0,0" VerticalAlignment="Top" Width="575">
 
+        </DataGrid>
+        <Button x:Name="printBilBtn" Content="Print Bill" Click="printBilBtn_Click" HorizontalAlignment="Left" Margin="79,325,0,0" VerticalAlignment="Top" Width="95" Height="23"/>
     </Grid>
 </Window>
