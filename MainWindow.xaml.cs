@@ -21,89 +21,133 @@ namespace Assignment2
     /// This is group 10 assignment 2
     /// Member name:
     /// 1. Truong Giang Nguyen
-    /// </summary>
+    /// 2. Ibrahim Ali
+    /// 2. Ibrahim Ali
+    /// 3. 
+    /// 4. 
+    /// <summary>
     public partial class MainWindow : Window
     {
-        ObservableCollection<string> list = new ObservableCollection<string>();
         List<RestaurantItem> orders = new List<RestaurantItem>();
 
         public MainWindow()
         {
             InitializeComponent();
 
-            //dataGrid.SetBinding(orders);
-            //orders = RestaurantItem.GetItems();
-            //dataGrid.ItemsSource = orders;
-
-
             foreach (RestaurantItem item in RestaurantItem.GetItems())
             {
                 if (item.Category == "Beverage")
                 {
-                    comboBoxBeverage.Items.Add(item.Name);
+                    comboBoxBeverage.Items.Add(item);
                 }
                 else if (item.Category == "Appetizer")
                 {
-                    comboBoxAppetizer.Items.Add(item.Name);
+                    comboBoxAppetizer.Items.Add(item);
                 }
                 else if (item.Category == "Main Course")
                 {
-                    comboBoxMainCourse.Items.Add(item.Name);
+                    comboBoxMainCourse.Items.Add(item);
                 }
                 else if (item.Category == "Dessert")
                 {
-                    comboBoxDessert.Items.Add(item.Name);
+                    comboBoxDessert.Items.Add(item);
                 }
             }
-
-            //comboBoxBeverage.SelectedIndex = 0;
-            //comboBoxAppetizer.SelectedIndex = 0;
-            //comboBoxMainCourse.SelectedIndex = 0;
-            //comboBoxDessert.SelectedIndex = 0;
-
         }
 
         private void ComboBoxBeverage_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //ComboBox typeItem = (ComboBox)comboBoxBeverage.SelectedItem;
-            //ComboBoxItem typeItem = ((ComboBoxItem)comboBoxBeverage.SelectedItem).Content.ToString();
-            //string value = (comboBoxBeverage.SelectedItem).ToString();//comboBoxBeverage.Text;//typeItem.Text;
-            string value = comboBoxBeverage.SelectedItem as string;
+            //string value = comboBoxBeverage.SelectedItem as string;
+            //updateList(this.orders, value);
+            //MessageBox.Show("event trigger");
 
-            updateList(this.orders, value);
-            //RestaurantItem restaurantItem = orders.IndexOf(orders.Find(orderItem => orderItem.Name.Contains(value)));
-            //int index = orders.IndexOf(orders.Find(orderItem => orderItem.Name.Contains(value)));
+            RestaurantItem value = comboBoxBeverage.SelectedItem as RestaurantItem;
 
-            //RestaurantItem restaurantItem = orders[index];
-            //restaurantItem.qty++;
+            int index = orders.IndexOf(orders.Find(orderItem => orderItem.Name.Contains(value.Name)));
+            if (index == -1) // if not in the list
+            {
+                orders.Add(value);
+            }
+            else
+            {
+                RestaurantItem restaurantItem = orders[index];
+                restaurantItem.qty++;
+            }
 
-            //dataGrid.Items.Refresh();
-            MessageBox.Show("event trigger");
-            //MessageBox.Show($"{value}, index {index}, quantity {orders[index].qty}");
+            dataGrid.ItemsSource = orders;
+            dataGrid.Items.Refresh();
         }
 
         private void ComboBoxMainCourse_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //var selectedValue = ((ComboBoxItem)comboBoxMainCourse.SelectedItem).Content.ToString();
-            //list.Add(selectedValue);
-            //dataGrid.ItemsSource = list;
+            //string value = comboBoxMainCourse.SelectedItem as string;
+            //updateList(this.orders, value);
+            //MessageBox.Show("event trigger");
+
+            RestaurantItem value = comboBoxMainCourse.SelectedItem as RestaurantItem;
+
+            int index = orders.IndexOf(orders.Find(orderItem => orderItem.Name.Contains(value.Name)));
+            if (index == -1) // if not in the list
+            {
+                orders.Add(value);
+            }
+            else
+            {
+                RestaurantItem restaurantItem = orders[index];
+                restaurantItem.qty++;
+            }
+
+            dataGrid.ItemsSource = orders;
+            dataGrid.Items.Refresh();
         }
 
         private void ComboBoxDessert_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-           //var selectedValue = ((ComboBoxItem)comboBoxDessert.SelectedItem).Content.ToString();
-            //list.Add(selectedValue);
-            //dataGrid.ItemsSource = list;
+            //string value = comboBoxDessert.SelectedItem as string;
+            //updateList(this.orders, value);
+            //MessageBox.Show("event trigger");
+
+            RestaurantItem value = comboBoxDessert.SelectedItem as RestaurantItem;
+
+            int index = orders.IndexOf(orders.Find(orderItem => orderItem.Name.Contains(value.Name)));
+            if (index == -1) // if not in the list
+            {
+                orders.Add(value);
+            }
+            else
+            {
+                RestaurantItem restaurantItem = orders[index];
+                restaurantItem.qty++;
+            }
+
+            dataGrid.ItemsSource = orders;
+            dataGrid.Items.Refresh();
         }
 
         private void ComboBoxAppetizer_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //var selectedValue = ((ComboBoxItem)comboBoxAppetizer.SelectedItem).Content.ToString();
-            //list.Add(selectedValue);
-            //dataGrid.ItemsSource = list;
+            //string value = comboBoxDessert.SelectedItem as string;
+            //updateList(this.orders, value);
+            //MessageBox.Show("event trigger");
+
+            RestaurantItem value = comboBoxAppetizer.SelectedItem as RestaurantItem;
+
+            int index = orders.IndexOf(orders.Find(orderItem => orderItem.Name.Contains(value.Name)));
+            if (index == -1) // if not in the list
+            {
+                orders.Add(value);
+            }
+            else
+            {
+                RestaurantItem restaurantItem = orders[index];
+                restaurantItem.qty++;
+            }
+
+            dataGrid.ItemsSource = orders;
+            dataGrid.Items.Refresh();
         }
 
-        private void updateList(List<RestaurantItem> orders, string item) 
+        /*private void updateList(List<RestaurantItem> orders, string item) 
         {
             int index = orders.IndexOf(orders.Find(orderItem => orderItem.Name.Contains(item)));
             if (index == -1) // if not in the list
@@ -116,7 +160,7 @@ namespace Assignment2
                 RestaurantItem restaurantItem = orders[index];
                 restaurantItem.qty++;
             }
-            //MessageBox.
+
             dataGrid.ItemsSource = orders;
             dataGrid.Items.Refresh();
         }
@@ -124,7 +168,6 @@ namespace Assignment2
         private static RestaurantItem getItem(string name)
         {
             RestaurantItem restaurantItem = new RestaurantItem();
-
 
             foreach (RestaurantItem item in RestaurantItem.GetItems())
             {
@@ -134,28 +177,8 @@ namespace Assignment2
                 }
                 
             }
-
             return restaurantItem;
-
-
-            /*switch (name)
-            {
-                case "Soda":
-                    restaurantItem = new RestaurantItem("Soda", "Beverage", 1.95);
-                    return restaurantItem;
-                case "Tea":
-                    restaurantItem = new RestaurantItem("Tea", "Beverage", 1.50);
-                    return restaurantItem;
-                case "Coffee":
-                    restaurantItem = new RestaurantItem("Coffee", "Beverage", 1.25);
-                    return restaurantItem;
-                default:
-                    return null;
-            }*/
-
-            
-
-        }
+        }*/
 
     }
 }
