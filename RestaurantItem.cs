@@ -10,9 +10,17 @@ namespace Assignment2
     {
         public string Name { get; }
         public string Category { get; }
-        public double Price { get; }
+
+        protected double? _price;
         public int qty { get; set; } = 1;
 
+        public string Price
+        {
+            get
+            {
+                return string.Format("{0:C}", _price.Value);
+            }
+        }
 
         public RestaurantItem(){}
 
@@ -20,7 +28,7 @@ namespace Assignment2
         {
             this.Name = name;
             this.Category = category;
-            this.Price = price;
+            this._price = price;
         }
 
         public static List<RestaurantItem> GetItems()
@@ -62,7 +70,7 @@ namespace Assignment2
 
         public string toString()
         {
-            return $"Name: {Name} | Category: {Category} | Price: {Price} | Quantity: {qty}";
+            return $"Name: {Name} | Category: {Category} | Price: {_price} | Quantity: {qty}";
         }
 
         public string comboItemsNameAndPrice()
