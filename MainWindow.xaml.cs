@@ -77,7 +77,7 @@ namespace Assignment2
             hst = 0;
             total = 0;
             foreach (RestaurantItem item in orders)
-                subTotal += item.Price;
+                subTotal += item.Price * item.qty;
             hst = subTotal * 0.13;
             total = subTotal + hst;
 
