@@ -32,6 +32,9 @@ namespace Assignment2
     public partial class MainWindow : Window
     {
         List<RestaurantItem> orders = new List<RestaurantItem>();
+        double subTotal = 0;
+        double hst = 0;
+        double total = 0;
 
         public MainWindow()
         {
@@ -65,6 +68,22 @@ namespace Assignment2
             }
 
             this.dataGrid.CanUserAddRows = false;
+            ReCalculate_total();
+        }
+
+        private void ReCalculate_total()
+        {
+            subTotal = 0;
+            hst = 0;
+            total = 0;
+            foreach (RestaurantItem item in orders)
+                subTotal += item.Price;
+            hst = subTotal * 0.13;
+            total = subTotal + hst;
+
+            SubTotalText.Content = subTotal;
+            HSTText.Content = hst;
+            TotalText.Content = total;
         }
 
         private void ComboBoxBeverage_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -86,6 +105,8 @@ namespace Assignment2
                 }
                 dataGrid.ItemsSource = orders;
                 dataGrid.Items.Refresh();
+
+                ReCalculate_total();
             }
 
             this.comboBoxBeverage.SelectedIndex = 0;
@@ -108,8 +129,11 @@ namespace Assignment2
                     RestaurantItem restaurantItem = orders[index];
                     restaurantItem.qty++;
                 }
+
                 dataGrid.ItemsSource = orders;
                 dataGrid.Items.Refresh();
+
+                ReCalculate_total();
             }
 
             this.comboBoxMainCourse.SelectedIndex = 0;
@@ -132,8 +156,11 @@ namespace Assignment2
                     RestaurantItem restaurantItem = orders[index];
                     restaurantItem.qty++;
                 }
+
                 dataGrid.ItemsSource = orders;
                 dataGrid.Items.Refresh();
+
+                ReCalculate_total();
             }
 
             this.comboBoxDessert.SelectedIndex = 0;
@@ -156,8 +183,11 @@ namespace Assignment2
                     RestaurantItem restaurantItem = orders[index];
                     restaurantItem.qty++;
                 }
+
                 dataGrid.ItemsSource = orders;
                 dataGrid.Items.Refresh();
+
+                ReCalculate_total();
             }
 
             this.comboBoxAppetizer.SelectedIndex = 0;
@@ -183,9 +213,9 @@ namespace Assignment2
             bill.Append("-----------------------------------------------------");
             bill.AppendLine("-----------------------------------------------------");
             // Need to change to dynamic number
-            double subTotal = 120.99;
-            double hst = subTotal * 0.13;
-            double total = subTotal + hst;
+            //double subTotal = 120.99;
+            //double hst = subTotal * 0.13;
+            //double total = subTotal + hst;
             bill.AppendLine($"Subtotal {subTotal.ToString("C"),30}");
             bill.AppendLine($"H.S.T  {hst.ToString("C"),32}");
             bill.AppendLine($"Total   {total.ToString("C"),33}");
@@ -207,6 +237,7 @@ namespace Assignment2
             orders.Clear();
             dataGrid.ItemsSource = orders;
             dataGrid.Items.Refresh();
+            ReCalculate_total();
         }
     }
 }
