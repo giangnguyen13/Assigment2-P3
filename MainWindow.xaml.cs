@@ -77,7 +77,7 @@ namespace Assignment2
             hst = 0;
             total = 0;
             foreach (RestaurantItem item in orders)
-                subTotal += item.Price;
+                subTotal += item.price;
             hst = subTotal * 0.13;
             total = subTotal + hst;
 
@@ -212,10 +212,7 @@ namespace Assignment2
 
             bill.Append("-----------------------------------------------------");
             bill.AppendLine("-----------------------------------------------------");
-            // Need to change to dynamic number
-            //double subTotal = 120.99;
-            //double hst = subTotal * 0.13;
-            //double total = subTotal + hst;
+            
             bill.AppendLine($"Subtotal {subTotal.ToString("C"),30}");
             bill.AppendLine($"H.S.T  {hst.ToString("C"),32}");
             bill.AppendLine($"Total   {total.ToString("C"),33}");
