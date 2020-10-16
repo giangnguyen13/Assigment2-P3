@@ -101,7 +101,7 @@ namespace Assignment2
                 else
                 {
                     RestaurantItem restaurantItem = orders[index];
-                    restaurantItem.qty++;
+                    restaurantItem.Qty++;
                 }
                 dataGrid.ItemsSource = orders;
                 dataGrid.Items.Refresh();
@@ -127,7 +127,7 @@ namespace Assignment2
                 else
                 {
                     RestaurantItem restaurantItem = orders[index];
-                    restaurantItem.qty++;
+                    restaurantItem.Qty++;
                 }
 
                 dataGrid.ItemsSource = orders;
@@ -154,7 +154,7 @@ namespace Assignment2
                 else
                 {
                     RestaurantItem restaurantItem = orders[index];
-                    restaurantItem.qty++;
+                    restaurantItem.Qty++;
                 }
 
                 dataGrid.ItemsSource = orders;
@@ -181,7 +181,7 @@ namespace Assignment2
                 else
                 {
                     RestaurantItem restaurantItem = orders[index];
-                    restaurantItem.qty++;
+                    restaurantItem.Qty++;
                 }
 
                 dataGrid.ItemsSource = orders;

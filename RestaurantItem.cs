@@ -12,7 +12,7 @@ namespace Assignment2
         public string Category { get; }
 
         public double price;
-        public int qty { get; set; } = 1;
+        public int Qty { get; set; } = 1;
 
         public string Price
         {
@@ -70,7 +70,7 @@ namespace Assignment2
 
         public override string ToString()
         {
-            return $"{Name,-35} {Category,-10} {qty,20} {Price,30}";
+            return $"{Name,-35} {Category,-10} {Qty,20} {Price,30}";
         }
 
         public string comboItemsNameAndPrice()
