@@ -23,9 +23,13 @@
         <Label x:Name="labelAppetizer" Content="Appetizer" HorizontalAlignment="Left" Margin="254,82,0,0" VerticalAlignment="Top"/>
         <Label x:Name="labelMainCourse" Content="Main Course" HorizontalAlignment="Left" Margin="78,159,0,0" VerticalAlignment="Top"/>
         <Label x:Name="labelDessert" Content="Dessert" HorizontalAlignment="Left" Margin="254,159,0,0" VerticalAlignment="Top"/>
-        <DataGrid x:Name="dataGrid" ItemsSource="{Binding orders}" HorizontalAlignment="Left" Height="168" Margin="420,83,0,0" VerticalAlignment="Top" Width="575">
+        <DataGrid x:Name="dataGrid" ItemsSource="{Binding orders}" 
+                  HorizontalAlignment="Left" 
+                  Height="168" Margin="420,83,0,0" VerticalAlignment="Top" Width="575">
 
         </DataGrid>
-        <Button x:Name="printBilBtn" Content="Print Bill" Click="printBilBtn_Click" HorizontalAlignment="Left" Margin="79,325,0,0" VerticalAlignment="Top" Width="95" Height="23"/>
+        <Label x:Name="generateBillLabel" Content="GENERATE YOUR BILL" HorizontalAlignment="Left" Margin="78,38,0,0" VerticalAlignment="Top" FontSize="22" FontWeight="Bold"/>
+        <Button x:Name="printBillBtn" Content="Print bill" Click="printBilBtn_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Width="111" Margin="78,325,0,0"/>
+        <Button x:Name="clearBtn" Click="clearBtn_Click" Content="Clear" HorizontalAlignment="Left" Margin="254,325,0,0" VerticalAlignment="Top" Width="120"/>
     </Grid>
 </Window>

@@ -26,7 +26,8 @@ namespace Assignment2
         public static List<RestaurantItem> GetItems()
         {
             List<RestaurantItem> items = new List<RestaurantItem>();
-
+            items.Add(new RestaurantItem(null, null, 0));
+       
             items.Add(new RestaurantItem("Soda", "Beverage", 1.95));
             items.Add(new RestaurantItem("Tea", "Beverage", 1.50));
             items.Add(new RestaurantItem("Coffee", "Beverage", 1.25));
@@ -40,23 +41,23 @@ namespace Assignment2
             items.Add(new RestaurantItem("Mushroom Caps", "Appetizer", 10.95));
             items.Add(new RestaurantItem("Shrimp Cocktail", "Appetizer", 12.95));
             items.Add(new RestaurantItem("Chips and Salsa", "Appetizer", 8.95));
-
-
-
-
+            items.Add(new RestaurantItem("Seafodd Alfredo", "Main Course", 15.95));
+            items.Add(new RestaurantItem("Chicken Alfredo", "Main Course", 13.95));
+            items.Add(new RestaurantItem("Chicken Picatta", "Main Course", 13.95));
             items.Add(new RestaurantItem("Turkey Club", "Main Course", 11.95));
-
-
-
-
+            items.Add(new RestaurantItem("Lobster Pie", "Main Course", 19.95));
+            items.Add(new RestaurantItem("Prime Rib", "Main Course", 20.95));
+            items.Add(new RestaurantItem("Shrimp Scampi", "Main Course", 18.95));
+            items.Add(new RestaurantItem("Turkey Dinner", "Main Course", 13.95));
+            items.Add(new RestaurantItem("Stuffed Chicken Picatta", "Main Course", 14.95));
+            items.Add(new RestaurantItem("Chicken Picatta", "Main Course", 13.95));
             items.Add(new RestaurantItem("Apple Pie", "Dessert", 5.95));
-
-
-
-
+            items.Add(new RestaurantItem("Sundae", "Dessert", 3.95));
+            items.Add(new RestaurantItem("Carrot Cake", "Dessert", 5.95));
+            items.Add(new RestaurantItem("Mud Pie", "Dessert", 4.95));
+            items.Add(new RestaurantItem("Apple Crisp", "Dessert", 5.95));
 
             return items;
-
         }
 
         public override string ToString()

@@ -26,7 +26,6 @@ namespace Assignment2
     /// Member name:
     /// 1. Truong Giang Nguyen
     /// 2. Ibrahim Ali
-    /// 2. Ibrahim Ali
     /// 3. 
     /// 4. 
     /// <summary>
@@ -56,137 +55,116 @@ namespace Assignment2
                 {
                     comboBoxDessert.Items.Add(item);
                 }
+                else
+                {
+                    comboBoxBeverage.Items.Add(item);
+                    comboBoxAppetizer.Items.Add(item);
+                    comboBoxMainCourse.Items.Add(item);
+                    comboBoxDessert.Items.Add(item);
+                }
             }
+
+            this.dataGrid.CanUserAddRows = false;
         }
 
         private void ComboBoxBeverage_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //string value = comboBoxBeverage.SelectedItem as string;
-            //updateList(this.orders, value);
-            //MessageBox.Show("event trigger");
-
             RestaurantItem value = comboBoxBeverage.SelectedItem as RestaurantItem;
 
-            int index = orders.IndexOf(orders.Find(orderItem => orderItem.Name.Contains(value.Name)));
-            if (index == -1) // if not in the list
+            if (comboBoxBeverage.SelectedIndex != 0)
             {
-                orders.Add(value);
-            }
-            else
-            {
-                RestaurantItem restaurantItem = orders[index];
-                restaurantItem.qty++;
+                int index = orders.IndexOf(orders.Find(orderItem => orderItem.Name.Contains(value.Name)));
+
+                if (index == -1) // if not in the list
+                {
+                    orders.Add(value);
+                }
+                else
+                {
+                    RestaurantItem restaurantItem = orders[index];
+                    restaurantItem.qty++;
+                }
+                dataGrid.ItemsSource = orders;
+                dataGrid.Items.Refresh();
             }
 
-            dataGrid.ItemsSource = orders;
-            dataGrid.Items.Refresh();
+            this.comboBoxBeverage.SelectedIndex = 0;
         }
 
         private void ComboBoxMainCourse_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //string value = comboBoxMainCourse.SelectedItem as string;
-            //updateList(this.orders, value);
-            //MessageBox.Show("event trigger");
-
             RestaurantItem value = comboBoxMainCourse.SelectedItem as RestaurantItem;
 
-            int index = orders.IndexOf(orders.Find(orderItem => orderItem.Name.Contains(value.Name)));
-            if (index == -1) // if not in the list
+            if (comboBoxMainCourse.SelectedIndex != 0)
             {
-                orders.Add(value);
-            }
-            else
-            {
-                RestaurantItem restaurantItem = orders[index];
-                restaurantItem.qty++;
+                int index = orders.IndexOf(orders.Find(orderItem => orderItem.Name.Contains(value.Name)));
+
+                if (index == -1) // if not in the list
+                {
+                    orders.Add(value);
+                }
+                else
+                {
+                    RestaurantItem restaurantItem = orders[index];
+                    restaurantItem.qty++;
+                }
+                dataGrid.ItemsSource = orders;
+                dataGrid.Items.Refresh();
             }
 
-            dataGrid.ItemsSource = orders;
-            dataGrid.Items.Refresh();
+            this.comboBoxMainCourse.SelectedIndex = 0;
         }
 
         private void ComboBoxDessert_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //string value = comboBoxDessert.SelectedItem as string;
-            //updateList(this.orders, value);
-            //MessageBox.Show("event trigger");
-
             RestaurantItem value = comboBoxDessert.SelectedItem as RestaurantItem;
 
-            int index = orders.IndexOf(orders.Find(orderItem => orderItem.Name.Contains(value.Name)));
-            if (index == -1) // if not in the list
+            if (comboBoxDessert.SelectedIndex != 0)
             {
-                orders.Add(value);
-            }
-            else
-            {
-                RestaurantItem restaurantItem = orders[index];
-                restaurantItem.qty++;
+                int index = orders.IndexOf(orders.Find(orderItem => orderItem.Name.Contains(value.Name)));
+
+                if (index == -1) // if not in the list
+                {
+                    orders.Add(value);
+                }
+                else
+                {
+                    RestaurantItem restaurantItem = orders[index];
+                    restaurantItem.qty++;
+                }
+                dataGrid.ItemsSource = orders;
+                dataGrid.Items.Refresh();
             }
 
-            dataGrid.ItemsSource = orders;
-            dataGrid.Items.Refresh();
+            this.comboBoxDessert.SelectedIndex = 0;
         }
 
         private void ComboBoxAppetizer_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //string value = comboBoxDessert.SelectedItem as string;
-            //updateList(this.orders, value);
-            //MessageBox.Show("event trigger");
-
             RestaurantItem value = comboBoxAppetizer.SelectedItem as RestaurantItem;
 
-            int index = orders.IndexOf(orders.Find(orderItem => orderItem.Name.Contains(value.Name)));
-            if (index == -1) // if not in the list
+            if (comboBoxAppetizer.SelectedIndex != 0)
             {
-                orders.Add(value);
-            }
-            else
-            {
-                RestaurantItem restaurantItem = orders[index];
-                restaurantItem.qty++;
-            }
+                int index = orders.IndexOf(orders.Find(orderItem => orderItem.Name.Contains(value.Name)));
 
-            dataGrid.ItemsSource = orders;
-            dataGrid.Items.Refresh();
-        }
-
-        /*private void updateList(List<RestaurantItem> orders, string item) 
-        {
-            int index = orders.IndexOf(orders.Find(orderItem => orderItem.Name.Contains(item)));
-            if (index == -1) // if not in the list
-            {
-                RestaurantItem newItem = getItem(item);
-                orders.Add(newItem);
-            }
-            else
-            {
-                RestaurantItem restaurantItem = orders[index];
-                restaurantItem.qty++;
-            }
-
-            dataGrid.ItemsSource = orders;
-            dataGrid.Items.Refresh();
-        }
-
-        private static RestaurantItem getItem(string name)
-        {
-            RestaurantItem restaurantItem = new RestaurantItem();
-
-            foreach (RestaurantItem item in RestaurantItem.GetItems())
-            {
-                if (item.Name == name) {
-                    restaurantItem = item;
-                    break;
+                if (index == -1) // if not in the list
+                {
+                    orders.Add(value);
                 }
-                
+                else
+                {
+                    RestaurantItem restaurantItem = orders[index];
+                    restaurantItem.qty++;
+                }
+                dataGrid.ItemsSource = orders;
+                dataGrid.Items.Refresh();
             }
-            return restaurantItem;
-        }*/
+
+            this.comboBoxAppetizer.SelectedIndex = 0;
+        }
 
         private void printBilBtn_Click(object sender, RoutedEventArgs e)
         {
-            orders = RestaurantItem.GetItems();
             StringBuilder bill = new StringBuilder();
             Random rnd = new Random();
             int orderNumber = rnd.Next(10000, 50000);
@@ -197,13 +175,14 @@ namespace Assignment2
 
             string format = "{0,-35} {1,-10} {2,18} {3, 28}" + Environment.NewLine;
             bill.AppendFormat(format, "Item Name", "Category", "QTY", "Price");
-            foreach (RestaurantItem item in orders)
+            foreach (RestaurantItem item in this.orders)
             {
                 bill.AppendLine(item.ToString());
             }
 
             bill.Append("-----------------------------------------------------");
             bill.AppendLine("-----------------------------------------------------");
+            // Need to change to dynamic number
             double subTotal = 120.99;
             double hst = subTotal * 0.13;
             double total = subTotal + hst;
@@ -214,12 +193,20 @@ namespace Assignment2
 
 
             Document doc = new Document(iTextSharp.text.PageSize.LETTER, 10, 10, 42, 35);
-            PdfWriter writer = PdfWriter.GetInstance(doc, new FileStream($"Order-{orderNumber}.pdf", FileMode.Create));
+            string filePath = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), $"Order-{orderNumber}.pdf");
+            PdfWriter writer = PdfWriter.GetInstance(doc, new FileStream(filePath, FileMode.Create));
             doc.Open();
             Paragraph paragraph = new Paragraph(bill.ToString());
             doc.Add(paragraph);
 
             doc.Close();
+        }
+
+        private void clearBtn_Click(object sender, RoutedEventArgs e)
+        {
+            orders.Clear();
+            dataGrid.ItemsSource = orders;
+            dataGrid.Items.Refresh();
         }
     }
 }
