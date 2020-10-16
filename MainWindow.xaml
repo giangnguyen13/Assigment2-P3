@@ -7,16 +7,16 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="461.029" Width="1101.103">
     <Grid>
-        <ComboBox x:Name="comboBoxBeverage" HorizontalAlignment="Left" Margin="78,113,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="-0.053,-1.025" 
+        <ComboBox x:Name="comboBoxBeverage" DisplayMemberPath="Name" HorizontalAlignment="Left" Margin="78,113,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="-0.053,-1.025" 
                   SelectionChanged="ComboBoxBeverage_SelectionChanged"
                   SelectedValuePath="Content"/>
-        <ComboBox x:Name="comboBoxMainCourse" HorizontalAlignment="Left" Margin="78,185,0,0" VerticalAlignment="Top" Width="120" 
+        <ComboBox x:Name="comboBoxMainCourse" DisplayMemberPath="Name" HorizontalAlignment="Left" Margin="78,185,0,0" VerticalAlignment="Top" Width="120" 
                   SelectionChanged="ComboBoxMainCourse_SelectionChanged"
                   SelectedValuePath="Content"/>
-        <ComboBox x:Name="comboBoxAppetizer" HorizontalAlignment="Left" Margin="254,113,0,0" VerticalAlignment="Top" Width="120" 
+        <ComboBox x:Name="comboBoxAppetizer" DisplayMemberPath="Name" HorizontalAlignment="Left" Margin="254,113,0,0" VerticalAlignment="Top" Width="120" 
                   SelectionChanged="ComboBoxAppetizer_SelectionChanged"
                   SelectedValuePath="Content"/>
-        <ComboBox x:Name="comboBoxDessert" HorizontalAlignment="Left" Margin="254,185,0,0" VerticalAlignment="Top" Width="120" 
+        <ComboBox x:Name="comboBoxDessert" DisplayMemberPath="Name" HorizontalAlignment="Left" Margin="254,185,0,0" VerticalAlignment="Top" Width="120" 
                   SelectionChanged="ComboBoxDessert_SelectionChanged"
                   SelectedValuePath="Content"/>
         <Label x:Name="labelBeverage" Content="Beverage" HorizontalAlignment="Left" Margin="78,82,0,0" VerticalAlignment="Top"/>

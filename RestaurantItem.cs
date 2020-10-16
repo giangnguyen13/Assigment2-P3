@@ -59,9 +59,9 @@ namespace Assignment2
 
         }
 
-        public string toString()
+        public override string ToString()
         {
-            return $"Name: {Name} | Category: {Category} | Price: {Price} | Quantity: {qty}";
+            return $"{Name,-35} {Category,-10} {qty,20} {Price.ToString("C"),30}";
         }
 
         public string comboItemsNameAndPrice()
