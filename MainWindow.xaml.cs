@@ -90,7 +90,7 @@ namespace Assignment2
         {
             RestaurantItem value = comboBoxBeverage.SelectedItem as RestaurantItem;
 
-            if (comboBoxBeverage.SelectedIndex != 0)
+            if (value.Name != null)
             {
                 int index = orders.IndexOf(orders.Find(orderItem => orderItem.Name.Contains(value.Name)));
 
@@ -116,7 +116,7 @@ namespace Assignment2
         {
             RestaurantItem value = comboBoxMainCourse.SelectedItem as RestaurantItem;
 
-            if (comboBoxMainCourse.SelectedIndex != 0)
+            if (value.Name != null)
             {
                 int index = orders.IndexOf(orders.Find(orderItem => orderItem.Name.Contains(value.Name)));
 
@@ -143,7 +143,7 @@ namespace Assignment2
         {
             RestaurantItem value = comboBoxDessert.SelectedItem as RestaurantItem;
 
-            if (comboBoxDessert.SelectedIndex != 0)
+            if (value.Name != null)
             {
                 int index = orders.IndexOf(orders.Find(orderItem => orderItem.Name.Contains(value.Name)));
 
@@ -170,7 +170,7 @@ namespace Assignment2
         {
             RestaurantItem value = comboBoxAppetizer.SelectedItem as RestaurantItem;
 
-            if (comboBoxAppetizer.SelectedIndex != 0)
+            if (value.Name != null)
             {
                 int index = orders.IndexOf(orders.Find(orderItem => orderItem.Name.Contains(value.Name)));
 
