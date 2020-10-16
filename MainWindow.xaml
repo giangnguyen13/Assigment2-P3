@@ -29,5 +29,13 @@
 
         </DataGrid>
         <Label x:Name="generateBillLabel" Content="GENERATE YOUR BILL" HorizontalAlignment="Left" Margin="78,38,0,0" VerticalAlignment="Top" FontSize="22" FontWeight="Bold"/>
+        <Button x:Name="printBillBtn" Content="Print bill" Click="printBilBtn_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Width="111" Margin="78,325,0,0"/>
+        <Button x:Name="clearBtn" Click="clearBtn_Click" Content="Clear" HorizontalAlignment="Left" Margin="254,325,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label Content="SubTotal" HorizontalAlignment="Left" Margin="420,266,0,0" VerticalAlignment="Top"/>
+        <Label Content="HST" HorizontalAlignment="Left" Margin="420,297,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.871,-1"/>
+        <Label Content="Total" HorizontalAlignment="Left" Margin="420,328,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="SubTotalText" Content="{Binding subTotal}" ContentStringFormat="C" HorizontalAlignment="Left" Margin="491,266,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="HSTText" Content="{Binding hst}" ContentStringFormat="C" HorizontalAlignment="Left" Margin="491,297,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="TotalText" Content="{Binding total}" ContentStringFormat="C" HorizontalAlignment="Left" Margin="491,328,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

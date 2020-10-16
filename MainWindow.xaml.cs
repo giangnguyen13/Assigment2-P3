@@ -7,12 +7,16 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
+//using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+
+using System.IO;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
 
 namespace Assignment2
 {
@@ -28,6 +32,9 @@ namespace Assignment2
     public partial class MainWindow : Window
     {
         List<RestaurantItem> orders = new List<RestaurantItem>();
+        double subTotal = 0;
+        double hst = 0;
+        double total = 0;
 
         public MainWindow()
         {
@@ -61,14 +68,26 @@ namespace Assignment2
             }
 
             this.dataGrid.CanUserAddRows = false;
+            ReCalculate_total();
+        }
+
+        private void ReCalculate_total()
+        {
+            subTotal = 0;
+            hst = 0;
+            total = 0;
+            foreach (RestaurantItem item in orders)
+                subTotal += item.Price;
+            hst = subTotal * 0.13;
+            total = subTotal + hst;
+
+            SubTotalText.Content = subTotal;
+            HSTText.Content = hst;
+            TotalText.Content = total;
         }
 
         private void ComboBoxBeverage_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //string value = comboBoxBeverage.SelectedItem as string;
-            //updateList(this.orders, value);
-            //MessageBox.Show("event trigger");
-
             RestaurantItem value = comboBoxBeverage.SelectedItem as RestaurantItem;
 
             if (comboBoxBeverage.SelectedIndex != 0)
@@ -86,6 +105,8 @@ namespace Assignment2
                 }
                 dataGrid.ItemsSource = orders;
                 dataGrid.Items.Refresh();
+
+                ReCalculate_total();
             }
 
             this.comboBoxBeverage.SelectedIndex = 0;
@@ -93,10 +114,6 @@ namespace Assignment2
 
         private void ComboBoxMainCourse_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //string value = comboBoxMainCourse.SelectedItem as string;
-            //updateList(this.orders, value);
-            //MessageBox.Show("event trigger");
-
             RestaurantItem value = comboBoxMainCourse.SelectedItem as RestaurantItem;
 
             if (comboBoxMainCourse.SelectedIndex != 0)
@@ -112,8 +129,11 @@ namespace Assignment2
                     RestaurantItem restaurantItem = orders[index];
                     restaurantItem.qty++;
                 }
+
                 dataGrid.ItemsSource = orders;
                 dataGrid.Items.Refresh();
+
+                ReCalculate_total();
             }
 
             this.comboBoxMainCourse.SelectedIndex = 0;
@@ -121,10 +141,6 @@ namespace Assignment2
 
         private void ComboBoxDessert_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //string value = comboBoxDessert.SelectedItem as string;
-            //updateList(this.orders, value);
-            //MessageBox.Show("event trigger");
-
             RestaurantItem value = comboBoxDessert.SelectedItem as RestaurantItem;
 
             if (comboBoxDessert.SelectedIndex != 0)
@@ -140,8 +156,11 @@ namespace Assignment2
                     RestaurantItem restaurantItem = orders[index];
                     restaurantItem.qty++;
                 }
+
                 dataGrid.ItemsSource = orders;
                 dataGrid.Items.Refresh();
+
+                ReCalculate_total();
             }
 
             this.comboBoxDessert.SelectedIndex = 0;
@@ -149,10 +168,6 @@ namespace Assignment2
 
         private void ComboBoxAppetizer_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //string value = comboBoxAppetizer.SelectedItem as string;
-            //updateList(this.orders, value);
-            //MessageBox.Show("event trigger");
-
             RestaurantItem value = comboBoxAppetizer.SelectedItem as RestaurantItem;
 
             if (comboBoxAppetizer.SelectedIndex != 0)
@@ -168,45 +183,61 @@ namespace Assignment2
                     RestaurantItem restaurantItem = orders[index];
                     restaurantItem.qty++;
                 }
+
                 dataGrid.ItemsSource = orders;
                 dataGrid.Items.Refresh();
+
+                ReCalculate_total();
             }
 
             this.comboBoxAppetizer.SelectedIndex = 0;
         }
 
-        /*private void updateList(List<RestaurantItem> orders, string item) 
+        private void printBilBtn_Click(object sender, RoutedEventArgs e)
         {
-            int index = orders.IndexOf(orders.Find(orderItem => orderItem.Name.Contains(item)));
-            if (index == -1) // if not in the list
+            StringBuilder bill = new StringBuilder();
+            Random rnd = new Random();
+            int orderNumber = rnd.Next(10000, 50000);
+            bill.AppendLine("Restaurant AWS - Bill Payment");
+            bill.Append("-----------------------------------------------------");
+            bill.AppendLine("-----------------------------------------------------");
+            bill.AppendLine($"Order# {orderNumber}\n");
+
+            string format = "{0,-35} {1,-10} {2,18} {3, 28}" + Environment.NewLine;
+            bill.AppendFormat(format, "Item Name", "Category", "QTY", "Price");
+            foreach (RestaurantItem item in this.orders)
             {
-                RestaurantItem newItem = getItem(item);
-                orders.Add(newItem);
-            }
-            else
-            {
-                RestaurantItem restaurantItem = orders[index];
-                restaurantItem.qty++;
+                bill.AppendLine(item.ToString());
             }
 
-            dataGrid.ItemsSource = orders;
-            dataGrid.Items.Refresh();
+            bill.Append("-----------------------------------------------------");
+            bill.AppendLine("-----------------------------------------------------");
+            // Need to change to dynamic number
+            //double subTotal = 120.99;
+            //double hst = subTotal * 0.13;
+            //double total = subTotal + hst;
+            bill.AppendLine($"Subtotal {subTotal.ToString("C"),30}");
+            bill.AppendLine($"H.S.T  {hst.ToString("C"),32}");
+            bill.AppendLine($"Total   {total.ToString("C"),33}");
+            bill.AppendLine($"\n{"",-35}{"AWS restaurant is happy to serve you.!"}");
+
+
+            Document doc = new Document(iTextSharp.text.PageSize.LETTER, 10, 10, 42, 35);
+            string filePath = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), $"Order-{orderNumber}.pdf");
+            PdfWriter writer = PdfWriter.GetInstance(doc, new FileStream(filePath, FileMode.Create));
+            doc.Open();
+            Paragraph paragraph = new Paragraph(bill.ToString());
+            doc.Add(paragraph);
+
+            doc.Close();
         }
 
-        private static RestaurantItem getItem(string name)
+        private void clearBtn_Click(object sender, RoutedEventArgs e)
         {
-            RestaurantItem restaurantItem = new RestaurantItem();
-
-            foreach (RestaurantItem item in RestaurantItem.GetItems())
-            {
-                if (item.Name == name) {
-                    restaurantItem = item;
-                    break;
-                }
-                
-            }
-            return restaurantItem;
-        }*/
-
+            orders.Clear();
+            dataGrid.ItemsSource = orders;
+            dataGrid.Items.Refresh();
+            ReCalculate_total();
+        }
     }
 }

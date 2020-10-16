@@ -16,6 +16,33 @@ C:\Users\Ibrah\Desktop\College\Semester4\Programming\Assignments\Assignment2\Ass
 H:\Programming3-project\Assignment2\bin\Debug\Assignment2.exe.config
 H:\Programming3-project\Assignment2\bin\Debug\Assignment2.exe
 H:\Programming3-project\Assignment2\bin\Debug\Assignment2.pdb
+H:\Programming3-project\Assignment2\bin\Debug\BouncyCastle.Crypto.dll
+H:\Programming3-project\Assignment2\bin\Debug\Common.Logging.Core.dll
+H:\Programming3-project\Assignment2\bin\Debug\Common.Logging.dll
+H:\Programming3-project\Assignment2\bin\Debug\itext.barcodes.dll
+H:\Programming3-project\Assignment2\bin\Debug\itext.forms.dll
+H:\Programming3-project\Assignment2\bin\Debug\itext.io.dll
+H:\Programming3-project\Assignment2\bin\Debug\itext.kernel.dll
+H:\Programming3-project\Assignment2\bin\Debug\itext.layout.dll
+H:\Programming3-project\Assignment2\bin\Debug\itext.pdfa.dll
+H:\Programming3-project\Assignment2\bin\Debug\itext.sign.dll
+H:\Programming3-project\Assignment2\bin\Debug\itext.styledxmlparser.dll
+H:\Programming3-project\Assignment2\bin\Debug\itext.svg.dll
+H:\Programming3-project\Assignment2\bin\Debug\itextsharp.dll
+H:\Programming3-project\Assignment2\bin\Debug\Common.Logging.pdb
+H:\Programming3-project\Assignment2\bin\Debug\Common.Logging.xml
+H:\Programming3-project\Assignment2\bin\Debug\Common.Logging.Core.pdb
+H:\Programming3-project\Assignment2\bin\Debug\Common.Logging.Core.xml
+H:\Programming3-project\Assignment2\bin\Debug\itext.barcodes.xml
+H:\Programming3-project\Assignment2\bin\Debug\itext.forms.xml
+H:\Programming3-project\Assignment2\bin\Debug\itext.io.xml
+H:\Programming3-project\Assignment2\bin\Debug\itext.kernel.xml
+H:\Programming3-project\Assignment2\bin\Debug\itext.layout.xml
+H:\Programming3-project\Assignment2\bin\Debug\itext.pdfa.xml
+H:\Programming3-project\Assignment2\bin\Debug\itext.sign.xml
+H:\Programming3-project\Assignment2\bin\Debug\itext.styledxmlparser.xml
+H:\Programming3-project\Assignment2\bin\Debug\itext.svg.xml
+H:\Programming3-project\Assignment2\bin\Debug\itextsharp.xml
 H:\Programming3-project\Assignment2\obj\Debug\Assignment2.csprojAssemblyReference.cache
 H:\Programming3-project\Assignment2\obj\Debug\MainWindow.g.cs
 H:\Programming3-project\Assignment2\obj\Debug\App.g.cs
@@ -26,5 +53,49 @@ H:\Programming3-project\Assignment2\obj\Debug\Assignment2.g.resources
 H:\Programming3-project\Assignment2\obj\Debug\Assignment2.Properties.Resources.resources
 H:\Programming3-project\Assignment2\obj\Debug\Assignment2.csproj.GenerateResource.cache
 H:\Programming3-project\Assignment2\obj\Debug\Assignment2.csproj.CoreCompileInputs.cache
+H:\Programming3-project\Assignment2\obj\Debug\Assignment2.csproj.CopyComplete
 H:\Programming3-project\Assignment2\obj\Debug\Assignment2.exe
 H:\Programming3-project\Assignment2\obj\Debug\Assignment2.pdb
+C:\Users\c_lap\Desktop\New folder (2)\Assigment2-P3\bin\Debug\Assignment2.exe.config
+C:\Users\c_lap\Desktop\New folder (2)\Assigment2-P3\bin\Debug\Assignment2.exe
+C:\Users\c_lap\Desktop\New folder (2)\Assigment2-P3\bin\Debug\Assignment2.pdb
+C:\Users\c_lap\Desktop\New folder (2)\Assigment2-P3\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\c_lap\Desktop\New folder (2)\Assigment2-P3\bin\Debug\Common.Logging.Core.dll
+C:\Users\c_lap\Desktop\New folder (2)\Assigment2-P3\bin\Debug\Common.Logging.dll
+C:\Users\c_lap\Desktop\New folder (2)\Assigment2-P3\bin\Debug\itext.barcodes.dll
+C:\Users\c_lap\Desktop\New folder (2)\Assigment2-P3\bin\Debug\itext.forms.dll
+C:\Users\c_lap\Desktop\New folder (2)\Assigment2-P3\bin\Debug\itext.io.dll
+C:\Users\c_lap\Desktop\New folder (2)\Assigment2-P3\bin\Debug\itext.kernel.dll
+C:\Users\c_lap\Desktop\New folder (2)\Assigment2-P3\bin\Debug\itext.layout.dll
+C:\Users\c_lap\Desktop\New folder (2)\Assigment2-P3\bin\Debug\itext.pdfa.dll
+C:\Users\c_lap\Desktop\New folder (2)\Assigment2-P3\bin\Debug\itext.sign.dll
+C:\Users\c_lap\Desktop\New folder (2)\Assigment2-P3\bin\Debug\itext.styledxmlparser.dll
+C:\Users\c_lap\Desktop\New folder (2)\Assigment2-P3\bin\Debug\itext.svg.dll
+C:\Users\c_lap\Desktop\New folder (2)\Assigment2-P3\bin\Debug\itextsharp.dll
+C:\Users\c_lap\Desktop\New folder (2)\Assigment2-P3\bin\Debug\Common.Logging.pdb
+C:\Users\c_lap\Desktop\New folder (2)\Assigment2-P3\bin\Debug\Common.Logging.xml
+C:\Users\c_lap\Desktop\New folder (2)\Assigment2-P3\bin\Debug\Common.Logging.Core.pdb
+C:\Users\c_lap\Desktop\New folder (2)\Assigment2-P3\bin\Debug\Common.Logging.Core.xml
+C:\Users\c_lap\Desktop\New folder (2)\Assigment2-P3\bin\Debug\itext.barcodes.xml
+C:\Users\c_lap\Desktop\New folder (2)\Assigment2-P3\bin\Debug\itext.forms.xml
+C:\Users\c_lap\Desktop\New folder (2)\Assigment2-P3\bin\Debug\itext.io.xml
+C:\Users\c_lap\Desktop\New folder (2)\Assigment2-P3\bin\Debug\itext.kernel.xml
+C:\Users\c_lap\Desktop\New folder (2)\Assigment2-P3\bin\Debug\itext.layout.xml
+C:\Users\c_lap\Desktop\New folder (2)\Assigment2-P3\bin\Debug\itext.pdfa.xml
+C:\Users\c_lap\Desktop\New folder (2)\Assigment2-P3\bin\Debug\itext.sign.xml
+C:\Users\c_lap\Desktop\New folder (2)\Assigment2-P3\bin\Debug\itext.styledxmlparser.xml
+C:\Users\c_lap\Desktop\New folder (2)\Assigment2-P3\bin\Debug\itext.svg.xml
+C:\Users\c_lap\Desktop\New folder (2)\Assigment2-P3\bin\Debug\itextsharp.xml
+C:\Users\c_lap\Desktop\New folder (2)\Assigment2-P3\obj\Debug\Assignment2.csprojAssemblyReference.cache
+C:\Users\c_lap\Desktop\New folder (2)\Assigment2-P3\obj\Debug\MainWindow.g.cs
+C:\Users\c_lap\Desktop\New folder (2)\Assigment2-P3\obj\Debug\App.g.cs
+C:\Users\c_lap\Desktop\New folder (2)\Assigment2-P3\obj\Debug\Assignment2_MarkupCompile.cache
+C:\Users\c_lap\Desktop\New folder (2)\Assigment2-P3\obj\Debug\Assignment2_MarkupCompile.lref
+C:\Users\c_lap\Desktop\New folder (2)\Assigment2-P3\obj\Debug\MainWindow.baml
+C:\Users\c_lap\Desktop\New folder (2)\Assigment2-P3\obj\Debug\Assignment2.g.resources
+C:\Users\c_lap\Desktop\New folder (2)\Assigment2-P3\obj\Debug\Assignment2.Properties.Resources.resources
+C:\Users\c_lap\Desktop\New folder (2)\Assigment2-P3\obj\Debug\Assignment2.csproj.GenerateResource.cache
+C:\Users\c_lap\Desktop\New folder (2)\Assigment2-P3\obj\Debug\Assignment2.csproj.CoreCompileInputs.cache
+C:\Users\c_lap\Desktop\New folder (2)\Assigment2-P3\obj\Debug\Assignment2.csproj.CopyComplete
+C:\Users\c_lap\Desktop\New folder (2)\Assigment2-P3\obj\Debug\Assignment2.exe
+C:\Users\c_lap\Desktop\New folder (2)\Assigment2-P3\obj\Debug\Assignment2.pdb
