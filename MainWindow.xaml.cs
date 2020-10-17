@@ -17,6 +17,7 @@ using System.Windows.Shapes;
 using System.IO;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
+using System.Diagnostics;
 
 namespace Assignment2
 {
@@ -26,7 +27,7 @@ namespace Assignment2
     /// Member name:
     /// 1. Truong Giang Nguyen
     /// 2. Ibrahim Ali
-    /// 3. 
+    /// 3. Kobra Nateghi
     /// 4. 
     /// <summary>
     public partial class MainWindow : Window
@@ -236,6 +237,13 @@ namespace Assignment2
             dataGrid.Items.Refresh();
             ReCalculate_total();
             MessageBox.Show($"Clear bill successfully.!");
+        }
+        private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
+        {
+            // for .NET Core you need to add UseShellExecute = true
+            // see https://docs.microsoft.com/dotnet/api/system.diagnostics.processstartinfo.useshellexecute#property-value
+            Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri));
+            e.Handled = true;
         }
     }
 }
