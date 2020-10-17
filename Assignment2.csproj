@@ -135,5 +135,14 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="awslogo2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="awslogo3.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="mac1.PNG" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

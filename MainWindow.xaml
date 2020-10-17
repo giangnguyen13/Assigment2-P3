@@ -35,7 +35,15 @@
         <Label Content="HST" HorizontalAlignment="Left" Margin="420,297,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.871,-1"/>
         <Label Content="Total" HorizontalAlignment="Left" Margin="420,328,0,0" VerticalAlignment="Top"/>
         <Label x:Name="SubTotalText" Content="{Binding subTotal}" ContentStringFormat="C" HorizontalAlignment="Left" Margin="491,266,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="HSTText" Content="{Binding hst}" ContentStringFormat="C" HorizontalAlignment="Left" Margin="491,297,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="TotalText" Content="{Binding total}" ContentStringFormat="C" HorizontalAlignment="Left" Margin="491,328,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="HSTText" Content="{Binding hst}" ContentStringFormat="C" HorizontalAlignment="Left" Margin="491,305,0,0" VerticalAlignment="Top" RenderTransformOrigin="17.925,1.505" ClipToBounds="True"/>
+        <Label x:Name="TotalText" Content="{Binding total}" ContentStringFormat="C" HorizontalAlignment="Left" Margin="491,335,0,0" VerticalAlignment="Top"/>
+        <Image x:Name="LogoImg" Source="awslogo2.jpg" HorizontalAlignment="Left" Height="100" Margin="895,266,0,0" VerticalAlignment="Top" Width="100"/>
+        <Button x:Name="LogoBtn" Click="LogoBtn_Click" Height="150" Width="150" Margin="663,266,280,14" RenderTransformOrigin="0.513,0.511">
+            <Button.Template>
+                <ControlTemplate>
+                    <Image Source="awslogo2.jpg"/>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
     </Grid>
 </Window>

@@ -68,6 +68,7 @@ namespace Assignment2
             }
 
             this.dataGrid.CanUserAddRows = false;
+
             ReCalculate_total();
         }
 
@@ -236,6 +237,11 @@ namespace Assignment2
             dataGrid.Items.Refresh();
             ReCalculate_total();
             MessageBox.Show($"Clear bill successfully.!");
+        }
+
+        private void LogoBtn_Click(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://www.google.com/");
         }
     }
 }
