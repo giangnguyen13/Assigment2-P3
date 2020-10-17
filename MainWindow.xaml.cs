@@ -17,6 +17,7 @@ using System.Windows.Shapes;
 using System.IO;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
+using System.Diagnostics;
 
 namespace Assignment2
 {
@@ -26,7 +27,7 @@ namespace Assignment2
     /// Member name:
     /// 1. Truong Giang Nguyen
     /// 2. Ibrahim Ali
-    /// 3. 
+    /// 3. Kobra Nateghi
     /// 4. 
     /// <summary>
     public partial class MainWindow : Window
@@ -241,6 +242,11 @@ namespace Assignment2
         private void dataGrid_GotFocus(object sender, RoutedEventArgs e)
         {
             ReCalculate_total();
+        }
+        private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
+        {
+            Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri));
+            e.Handled = true;
         }
     }
 }
