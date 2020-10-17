@@ -212,10 +212,7 @@ namespace Assignment2
 
             bill.Append("-----------------------------------------------------");
             bill.AppendLine("-----------------------------------------------------");
-            // Need to change to dynamic number
-            //double subTotal = 120.99;
-            //double hst = subTotal * 0.13;
-            //double total = subTotal + hst;
+
             bill.AppendLine($"Subtotal {subTotal.ToString("C"),30}");
             bill.AppendLine($"H.S.T  {hst.ToString("C"),32}");
             bill.AppendLine($"Total   {total.ToString("C"),33}");
@@ -228,7 +225,7 @@ namespace Assignment2
             doc.Open();
             Paragraph paragraph = new Paragraph(bill.ToString());
             doc.Add(paragraph);
-
+            MessageBox.Show($"Generate bill for order# {orderNumber} successfully.!");
             doc.Close();
         }
 
@@ -238,6 +235,7 @@ namespace Assignment2
             dataGrid.ItemsSource = orders;
             dataGrid.Items.Refresh();
             ReCalculate_total();
+            MessageBox.Show($"Clear bill successfully.!");
         }
     }
 }
