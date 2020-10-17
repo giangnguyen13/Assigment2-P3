@@ -3,15 +3,29 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace Assignment2
 {
-    public class RestaurantItem
+    public class RestaurantItem : INotifyPropertyChanged
     {
+        private int quantity = 1;
         public string Name { get; }
         public string Category { get; }
         public double Price { get; }
-        public int qty { get; set; } = 1;
+        public int qty 
+        {
+            get { return quantity; }
+            set
+            {
+                quantity = value;
+                // Call OnPropertyChanged whenever the property is updated
+                OnPropertyChanged("qty");
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
 
         public RestaurantItem(){}
@@ -68,6 +82,16 @@ namespace Assignment2
         public string comboItemsNameAndPrice()
         {
             return $"{Name} - Price";
+        }
+
+        // Create the OnPropertyChanged method to raise the event
+        // The calling member's name will be used as the parameter.
+        protected void OnPropertyChanged(string name)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(name));
+            }
         }
     }
 }

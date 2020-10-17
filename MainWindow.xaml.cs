@@ -68,6 +68,7 @@ namespace Assignment2
             }
 
             this.dataGrid.CanUserAddRows = false;
+            this.dataGrid.AutoGenerateColumns = false;
             ReCalculate_total();
         }
 
@@ -234,8 +235,12 @@ namespace Assignment2
             orders.Clear();
             dataGrid.ItemsSource = orders;
             dataGrid.Items.Refresh();
-            ReCalculate_total();
             MessageBox.Show($"Clear bill successfully.!");
+        }
+
+        private void dataGrid_GotFocus(object sender, RoutedEventArgs e)
+        {
+            ReCalculate_total();
         }
     }
 }
