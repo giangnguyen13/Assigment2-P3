@@ -236,6 +236,7 @@ namespace Assignment2
             orders.Clear();
             dataGrid.ItemsSource = orders;
             dataGrid.Items.Refresh();
+            ReCalculate_total();
             MessageBox.Show($"Clear bill successfully.!");
         }
 
