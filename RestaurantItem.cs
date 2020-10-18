@@ -3,24 +3,30 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace Assignment2
 {
-    public class RestaurantItem
+    public class RestaurantItem //: INotifyPropertyChanged
     {
+        private int quantity = 1;
         public string Name { get; }
         public string Category { get; }
-
-        public double price;
-        public int Qty { get; set; } = 1;
-
-        public string Price
+        public double Price { get; }
+        public int qty 
         {
-            get
+            get { return quantity; }
+            set
             {
-                return string.Format("{0:C}", price);
+                quantity = value;
+                // Call OnPropertyChanged whenever the property is updated
+                //OnPropertyChanged("qty");
             }
         }
+
+        //public event PropertyChangedEventHandler PropertyChanged;
+
 
         public RestaurantItem(){}
 
@@ -28,7 +34,7 @@ namespace Assignment2
         {
             this.Name = name;
             this.Category = category;
-            this.price = price;
+            this.Price = price;
         }
 
         public static List<RestaurantItem> GetItems()
@@ -70,12 +76,22 @@ namespace Assignment2
 
         public override string ToString()
         {
-            return $"{Name,-35} {Category,-10} {Qty,20} {Price,30}";
+            return $"{Name,-35} {Category,-10} {qty,20} {Price.ToString("C"),30}";
         }
 
         public string comboItemsNameAndPrice()
         {
             return $"{Name} - Price";
         }
+
+        // Create the OnPropertyChanged method to raise the event
+        // The calling member's name will be used as the parameter.
+        //protected void OnPropertyChanged(string name)
+        //{
+        //    if (PropertyChanged != null)
+        //    {
+        //        PropertyChanged(this, new PropertyChangedEventArgs(name));
+        //    }
+        //}
     }
 }

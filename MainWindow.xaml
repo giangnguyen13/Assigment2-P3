@@ -23,10 +23,17 @@
         <Label x:Name="labelAppetizer" Content="Appetizer" HorizontalAlignment="Left" Margin="254,82,0,0" VerticalAlignment="Top"/>
         <Label x:Name="labelMainCourse" Content="Main Course" HorizontalAlignment="Left" Margin="78,159,0,0" VerticalAlignment="Top"/>
         <Label x:Name="labelDessert" Content="Dessert" HorizontalAlignment="Left" Margin="254,159,0,0" VerticalAlignment="Top"/>
-        <DataGrid x:Name="dataGrid" ItemsSource="{Binding orders}" 
+        <DataGrid GotFocus="dataGrid_GotFocus" x:Name="dataGrid" ItemsSource="{Binding orders}"
                   HorizontalAlignment="Left" 
                   Height="168" Margin="420,83,0,0" VerticalAlignment="Top" Width="575">
-
+            <!--
+            -->
+                <DataGrid.Columns>
+                <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
+                <DataGridTextColumn Header="Category" Binding="{Binding Category}" />
+                <DataGridTextColumn Header="Quantity" Binding="{Binding qty, Mode=TwoWay}" />
+                <DataGridTextColumn Header="Price" Binding="{Binding Price, StringFormat=C}" />
+            </DataGrid.Columns>
         </DataGrid>
         <Label x:Name="generateBillLabel" Content="GENERATE YOUR BILL" HorizontalAlignment="Left" Margin="78,38,0,0" VerticalAlignment="Top" FontSize="22" FontWeight="Bold"/>
         <Button x:Name="printBillBtn" Content="Print bill" Click="printBilBtn_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Width="111" Margin="78,325,0,0"/>
@@ -37,5 +44,15 @@
         <Label x:Name="SubTotalText" Content="{Binding subTotal}" ContentStringFormat="C" HorizontalAlignment="Left" Margin="491,266,0,0" VerticalAlignment="Top"/>
         <Label x:Name="HSTText" Content="{Binding hst}" ContentStringFormat="C" HorizontalAlignment="Left" Margin="491,297,0,0" VerticalAlignment="Top"/>
         <Label x:Name="TotalText" Content="{Binding total}" ContentStringFormat="C" HorizontalAlignment="Left" Margin="491,328,0,0" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="887,297,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="94" Width="77">
+        <Hyperlink NavigateUri="https://www.centennialcollege.ca" RequestNavigate="Hyperlink_RequestNavigate">
+            <Image>
+        <Image.Source>
+                    <BitmapImage DecodePixelWidth="300" UriSource="Resources/centennial.jpg" />
+                </Image.Source>
+                
+            </Image>
+        </Hyperlink>
+        </TextBlock>
     </Grid>
 </Window>

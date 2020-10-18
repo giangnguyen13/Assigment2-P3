@@ -17,6 +17,7 @@ using System.Windows.Shapes;
 using System.IO;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
+using System.Diagnostics;
 
 namespace Assignment2
 {
@@ -26,7 +27,7 @@ namespace Assignment2
     /// Member name:
     /// 1. Truong Giang Nguyen
     /// 2. Ibrahim Ali
-    /// 3. 
+    /// 3. Kobra Nateghi
     /// 4. 
     /// <summary>
     public partial class MainWindow : Window
@@ -68,6 +69,7 @@ namespace Assignment2
             }
 
             this.dataGrid.CanUserAddRows = false;
+            this.dataGrid.AutoGenerateColumns = false;
             ReCalculate_total();
         }
 
@@ -77,7 +79,7 @@ namespace Assignment2
             hst = 0;
             total = 0;
             foreach (RestaurantItem item in orders)
-                subTotal += item.price;
+                subTotal += item.Price * item.qty;
             hst = subTotal * 0.13;
             total = subTotal + hst;
 
@@ -90,7 +92,7 @@ namespace Assignment2
         {
             RestaurantItem value = comboBoxBeverage.SelectedItem as RestaurantItem;
 
-            if (value.Name != null)
+            if (comboBoxBeverage.SelectedIndex != 0)
             {
                 int index = orders.IndexOf(orders.Find(orderItem => orderItem.Name.Contains(value.Name)));
 
@@ -101,7 +103,7 @@ namespace Assignment2
                 else
                 {
                     RestaurantItem restaurantItem = orders[index];
-                    restaurantItem.Qty++;
+                    restaurantItem.qty++;
                 }
                 dataGrid.ItemsSource = orders;
                 dataGrid.Items.Refresh();
@@ -116,7 +118,7 @@ namespace Assignment2
         {
             RestaurantItem value = comboBoxMainCourse.SelectedItem as RestaurantItem;
 
-            if (value.Name != null)
+            if (comboBoxMainCourse.SelectedIndex != 0)
             {
                 int index = orders.IndexOf(orders.Find(orderItem => orderItem.Name.Contains(value.Name)));
 
@@ -127,7 +129,7 @@ namespace Assignment2
                 else
                 {
                     RestaurantItem restaurantItem = orders[index];
-                    restaurantItem.Qty++;
+                    restaurantItem.qty++;
                 }
 
                 dataGrid.ItemsSource = orders;
@@ -143,7 +145,7 @@ namespace Assignment2
         {
             RestaurantItem value = comboBoxDessert.SelectedItem as RestaurantItem;
 
-            if (value.Name != null)
+            if (comboBoxDessert.SelectedIndex != 0)
             {
                 int index = orders.IndexOf(orders.Find(orderItem => orderItem.Name.Contains(value.Name)));
 
@@ -154,7 +156,7 @@ namespace Assignment2
                 else
                 {
                     RestaurantItem restaurantItem = orders[index];
-                    restaurantItem.Qty++;
+                    restaurantItem.qty++;
                 }
 
                 dataGrid.ItemsSource = orders;
@@ -170,7 +172,7 @@ namespace Assignment2
         {
             RestaurantItem value = comboBoxAppetizer.SelectedItem as RestaurantItem;
 
-            if (value.Name != null)
+            if (comboBoxAppetizer.SelectedIndex != 0)
             {
                 int index = orders.IndexOf(orders.Find(orderItem => orderItem.Name.Contains(value.Name)));
 
@@ -181,7 +183,7 @@ namespace Assignment2
                 else
                 {
                     RestaurantItem restaurantItem = orders[index];
-                    restaurantItem.Qty++;
+                    restaurantItem.qty++;
                 }
 
                 dataGrid.ItemsSource = orders;
@@ -212,7 +214,7 @@ namespace Assignment2
 
             bill.Append("-----------------------------------------------------");
             bill.AppendLine("-----------------------------------------------------");
-            
+
             bill.AppendLine($"Subtotal {subTotal.ToString("C"),30}");
             bill.AppendLine($"H.S.T  {hst.ToString("C"),32}");
             bill.AppendLine($"Total   {total.ToString("C"),33}");
@@ -225,7 +227,7 @@ namespace Assignment2
             doc.Open();
             Paragraph paragraph = new Paragraph(bill.ToString());
             doc.Add(paragraph);
-
+            MessageBox.Show($"Generate bill for order# {orderNumber} successfully.!");
             doc.Close();
         }
 
@@ -235,6 +237,17 @@ namespace Assignment2
             dataGrid.ItemsSource = orders;
             dataGrid.Items.Refresh();
             ReCalculate_total();
+            MessageBox.Show($"Clear bill successfully.!");
+        }
+
+        private void dataGrid_GotFocus(object sender, RoutedEventArgs e)
+        {
+            ReCalculate_total();
+        }
+        private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
+        {
+            Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri));
+            e.Handled = true;
         }
     }
 }
