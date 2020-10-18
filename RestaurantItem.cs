@@ -8,25 +8,20 @@ using System.Runtime.CompilerServices;
 
 namespace Assignment2
 {
-    public class RestaurantItem //: INotifyPropertyChanged
+    public class RestaurantItem
     {
-        private int quantity = 1;
+        private int _quantity = 1;
         public string Name { get; }
         public string Category { get; }
         public double Price { get; }
-        public int qty 
+        public int Quantity 
         {
-            get { return quantity; }
+            get { return _quantity; }
             set
             {
-                quantity = value;
-                // Call OnPropertyChanged whenever the property is updated
-                //OnPropertyChanged("qty");
+                _quantity = value;
             }
         }
-
-        //public event PropertyChangedEventHandler PropertyChanged;
-
 
         public RestaurantItem(){}
 
@@ -76,22 +71,7 @@ namespace Assignment2
 
         public override string ToString()
         {
-            return $"{Name,-35} {Category,-10} {qty,20} {Price.ToString("C"),30}";
+            return $"{Name,-35} {Category,-10} {Quantity,20} {Price.ToString("C"),30}";
         }
-
-        public string comboItemsNameAndPrice()
-        {
-            return $"{Name} - Price";
-        }
-
-        // Create the OnPropertyChanged method to raise the event
-        // The calling member's name will be used as the parameter.
-        //protected void OnPropertyChanged(string name)
-        //{
-        //    if (PropertyChanged != null)
-        //    {
-        //        PropertyChanged(this, new PropertyChangedEventArgs(name));
-        //    }
-        //}
     }
 }

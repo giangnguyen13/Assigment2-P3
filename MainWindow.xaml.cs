@@ -79,7 +79,7 @@ namespace Assignment2
             hst = 0;
             total = 0;
             foreach (RestaurantItem item in orders)
-                subTotal += item.Price * item.qty;
+                subTotal += item.Price * item.Quantity;
             hst = subTotal * 0.13;
             total = subTotal + hst;
 
@@ -103,7 +103,7 @@ namespace Assignment2
                 else
                 {
                     RestaurantItem restaurantItem = orders[index];
-                    restaurantItem.qty++;
+                    restaurantItem.Quantity++;
                 }
                 dataGrid.ItemsSource = orders;
                 dataGrid.Items.Refresh();
@@ -129,7 +129,7 @@ namespace Assignment2
                 else
                 {
                     RestaurantItem restaurantItem = orders[index];
-                    restaurantItem.qty++;
+                    restaurantItem.Quantity++;
                 }
 
                 dataGrid.ItemsSource = orders;
@@ -156,7 +156,7 @@ namespace Assignment2
                 else
                 {
                     RestaurantItem restaurantItem = orders[index];
-                    restaurantItem.qty++;
+                    restaurantItem.Quantity++;
                 }
 
                 dataGrid.ItemsSource = orders;
@@ -183,7 +183,7 @@ namespace Assignment2
                 else
                 {
                     RestaurantItem restaurantItem = orders[index];
-                    restaurantItem.qty++;
+                    restaurantItem.Quantity++;
                 }
 
                 dataGrid.ItemsSource = orders;
@@ -237,6 +237,8 @@ namespace Assignment2
             dataGrid.ItemsSource = orders;
             dataGrid.Items.Refresh();
             ReCalculate_total();
+            clearQuantities();
+
             MessageBox.Show($"Clear bill successfully.!");
         }
 
@@ -244,10 +246,31 @@ namespace Assignment2
         {
             ReCalculate_total();
         }
+
         private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
         {
             Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri));
             e.Handled = true;
+        }
+
+        private void clearQuantities()
+        {
+            foreach (RestaurantItem clear in comboBoxBeverage.Items)
+            {
+                clear.Quantity = 1;
+            }
+            foreach (RestaurantItem clear in comboBoxDessert.Items)
+            {
+                clear.Quantity = 1;
+            }
+            foreach (RestaurantItem clear in comboBoxAppetizer.Items)
+            {
+                clear.Quantity = 1;
+            }
+            foreach (RestaurantItem clear in comboBoxMainCourse.Items)
+            {
+                clear.Quantity = 1;
+            }
         }
     }
 }

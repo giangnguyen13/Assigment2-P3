@@ -26,12 +26,10 @@
         <DataGrid GotFocus="dataGrid_GotFocus" x:Name="dataGrid" ItemsSource="{Binding orders}"
                   HorizontalAlignment="Left" 
                   Height="168" Margin="420,83,0,0" VerticalAlignment="Top" Width="575">
-            <!--
-            -->
-                <DataGrid.Columns>
+            <DataGrid.Columns>
                 <DataGridTextColumn Header="Name" Binding="{Binding Name}" />
                 <DataGridTextColumn Header="Category" Binding="{Binding Category}" />
-                <DataGridTextColumn Header="Quantity" Binding="{Binding qty, Mode=TwoWay}" />
+                <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity, Mode=TwoWay}" />
                 <DataGridTextColumn Header="Price" Binding="{Binding Price, StringFormat=C}" />
             </DataGrid.Columns>
         </DataGrid>
@@ -46,12 +44,11 @@
         <Label x:Name="TotalText" Content="{Binding total}" ContentStringFormat="C" HorizontalAlignment="Left" Margin="491,328,0,0" VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="887,297,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Height="94" Width="77">
         <Hyperlink NavigateUri="https://www.centennialcollege.ca" RequestNavigate="Hyperlink_RequestNavigate">
-            <Image>
-        <Image.Source>
-                    <BitmapImage DecodePixelWidth="300" UriSource="Resources/centennial.jpg" />
-                </Image.Source>
-                
-            </Image>
+        <Image>
+            <Image.Source>
+                <BitmapImage DecodePixelWidth="300" UriSource="Resources/centennial.jpg" />
+            </Image.Source>
+        </Image>
         </Hyperlink>
         </TextBlock>
     </Grid>
